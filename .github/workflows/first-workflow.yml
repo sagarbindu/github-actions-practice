@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout stage
-        uses: : actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Build stage
         run: echo "Build stage"
