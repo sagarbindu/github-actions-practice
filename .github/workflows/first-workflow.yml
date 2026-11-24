@@ -1,21 +1,21 @@
 name: my First Github actions pipeline
 
-# on:
-#   push:
-#     branches: 
-#       - main
-
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: Select deployment environment
-        required: true
-        type: choice
-        options:
-          - dev
-          - test
-          - prod
+  push:
+    branches: 
+      - main
+
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       environment:
+#         description: Select deployment environment
+#         required: true
+#         type: choice
+#         options:
+#           - dev
+#           - test
+#           - prod
 
 jobs:
   firstjob:
