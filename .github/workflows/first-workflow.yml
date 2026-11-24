@@ -23,15 +23,35 @@ on:
 #           - prod
 
 jobs:
-  firstjob:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout stage
-        uses: actions/checkout@v4
-
-      - name: Build stage
+      - name: Build
         run: echo "Build stage"
 
-      - name: Testing stage
-        run: echo "Testing stage"
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo "Test stage"
+
+  security:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Security
+        run: echo "Security stage"
+
+  deploy:
+    needs: [test,security]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Security
+        run: echo "deploy stage"
+
+
