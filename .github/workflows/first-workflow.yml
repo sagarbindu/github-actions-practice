@@ -1,0 +1,23 @@
+name: my First Github actions pipeline
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  firstjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print msg
+        run: echo "Hi"
+
+      - name: Check Linux version
+        run: uname -a
+
+      - name: Check working directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
