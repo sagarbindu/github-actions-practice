@@ -58,6 +58,6 @@ jobs:
         env:
           DOCKER: ${{secrets.DOCKER_USERNAME}}
         run: |
-          echo "Token is configured"
+          echo "DOCKER"
 
 
