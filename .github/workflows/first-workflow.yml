@@ -23,35 +23,41 @@ on:
 #           - prod
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Build
-        run: echo "Build stage"
+  #   steps:
+  #     - name: Build
+  #       run: echo "Build stage"
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
+  # test:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Test
-        run: echo "Test stage"
+  #   steps:
+  #     - name: Test
+  #       run: echo "Test stage"
 
-  security:
-    needs: build
-    runs-on: ubuntu-latest
+  # security:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Security
-        run: echo "Security stage"
+  #   steps:
+  #     - name: Security
+  #       run: echo "Security stage"
 
   deploy:
-    needs: [test,security]
+    # needs: [test,security]
     runs-on: ubuntu-latest
 
     steps:
       - name: Security
         run: echo "deploy stage"
+
+      - name: Use secret
+        env:
+          DOCKER: ${{secrets.DOCKER_USERNAME}}
+        run: |
+          echo "Token is configured"
 
 
