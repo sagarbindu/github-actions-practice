@@ -1,9 +1,14 @@
-name: my First Github actions pipeline
+name: DevOps CI
 
 on:
   push:
     branches: 
       - main
+      - develop
+  pull_request:
+     branches:
+       - main
+  workflow_dispatch: 
 
 # on:
 #   workflow_dispatch:
@@ -22,14 +27,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print msg
-        run: echo "Hi"
+      - name: Checkout stage
+        uses: : actions/checkout@v4
 
-      - name: Check Linux version
-        run: uname -a
+      - name: Build stage
+        run: echo "Build stage"
 
-      - name: Check working directory
-        run: pwd
-
-      - name: List files
-        run: ls -la
+      - name: Testing stage
+        run: echo "Testing stage"
